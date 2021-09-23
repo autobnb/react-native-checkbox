@@ -48,33 +48,11 @@ export default function App() {
     );
   }
 
-  function renderForWindows() {
-    return (
-      <View style={styles.container}>
-        <Text>{`[value: ${value}]`}</Text>
-        <CheckBox
-          tintColor={'green'}
-          onCheckColor={'red'}
-          onFillColor={'yellow'}
-          onTintColor={'#80F4E8'}
-          value={value}
-          onValueChange={(val) => setValue(val)}
-        />
-        <Button
-          onPress={() => setValue(!value)}
-          title="toggle the value above"
-        />
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome to React Native Checkbox!</Text>
       {isIOS
         ? renderForIOS()
-        : Platform.OS === 'windows'
-        ? renderForWindows()
         : renderForAndroid()}
       <Text style={styles.instructions}>{instructions}</Text>
     </View>
